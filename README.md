@@ -38,7 +38,7 @@ const limiter = new Bottleneck({
   minTime: 1000,
 });
 
-// variable containing the id the genre and collection id from Webflow which we'll use to add our referenced collection items
+// variable containing the id of the genre and collection id from Webflow which we'll use to add our referenced collection items
 const allMovieGenres = [
   { id: "28", name: "Action", itemId: "6350c466177fc03ab366dbde" },
   { id: 12, name: "Adventure", itemId: "6350c466fc61527feb98ed8d" },
@@ -87,7 +87,7 @@ async function fetchMovies() {
   let activePage = 1;
 
   // iterate activePage until we reach the max page count set — 401
-  // using the Bottleneck task scheduler, make api call to Webflow to create a movie for each movie retrieved
+  // using the Bottleneck task scheduler, make api call to Webflow to create a collection item for each movie retrieved
   while (activePage < MAX_PAGE_COUNT) {
     // some options we're passing to the movies endpoint
     const options = { params: { page: activePage } };
