@@ -129,11 +129,11 @@ async function findTrailer(movie) {
 async function fetchGenres() {
   const { data } = await movieApi.get("/genre/movie/list");
 
-  data.genres.forEach((movie) => {
+  data.genres.forEach((genre) => {
     webflowApi.createItem({
       collectionId: "6348398efba7fae203374c15",
       fields: {
-        name: movie.name,
+        name: genre.name,
         _archived: false,
         _draft: true,
       },
