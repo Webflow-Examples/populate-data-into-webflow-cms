@@ -18,7 +18,7 @@ When retrieving data from the movies collection, we get 20 results at a time wit
 
 While retrieving 20 movies at a time, we loop over each movie and call another function (using our Bottleneck method) to create the collection item with the Webflow CMS api client. As a response for each successfully created item, we print out the name of the item/movie.
 
-INSERT GIF
+<img src="https://wadoodh.github.io/images/CleanShot%202022-10-23%20at%2001.51.09.gif" alt="gif showing the name of each movie printing as it's added to the Webflow CMS"/>
 
 # The Javascript
 

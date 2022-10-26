@@ -13,7 +13,7 @@ const limiter = new Bottleneck({
   minTime: 1000,
 });
 
-// variable containing the id the genre and collection id from Webflow which we'll use to add our referenced collection items
+// variable containing the id of the genre and collection id from Webflow which we'll use to add our referenced collection items
 const allMovieGenres = [
   { id: "28", name: "Action", itemId: "6350c466177fc03ab366dbde" },
   { id: 12, name: "Adventure", itemId: "6350c466fc61527feb98ed8d" },
