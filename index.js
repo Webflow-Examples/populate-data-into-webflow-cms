@@ -62,7 +62,7 @@ async function fetchMovies() {
   let activePage = 1;
 
   // iterate activePage until we reach the max page count set — 401
-  // using the Bottleneck task scheduler, make api call to Webflow to create a movie for each movie retrieved
+  // using the Bottleneck task scheduler, make api call to Webflow to create a collection item for each movie retrieved
   while (activePage < MAX_PAGE_COUNT) {
     // some options we're passing to the movies endpoint
     const options = { params: { page: activePage } };
