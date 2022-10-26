@@ -1,28 +1,3 @@
-# Populate Data into the Webflow CMS
-
-A node js script to populate data into the Webflow CMS
-
-# How it works
-
-In order to add data into the Webflow CMS, we need to first retrieve it from somewhere. In this example, we're getting data from [the movies database api](https://developers.themoviedb.org/3/movies/get-movie-details).
-
-We also need to consider the Webflow API rate limit (requests per minute). The CMS plan has a limit of 60 and the Business site plan has a limit 120 requets per minute. We're using the [Bottleneck npm package](https://www.npmjs.com/package/bottleneck) to accomodate this limit.
-
-We are also using [the Webflow CMS api client](https://www.npmjs.com/package/webflow-api) to interact with the Webflow CMS.
-
-The movies api includes many genres for each movie. This means we'll need to use a multi-reference field in Webflow to include the different genres. However, we can't just add the genre name as a value for the multi-reference field, it has to be the id of the referenced collection item.
-
-To resolve this, we ran a script to initially add all of the genres to Webflow, then added that array of genres in our script while including a new property for the Webflow collection item id for that genre. This way, we can find movies in the api according to the genre id of the api and then add the relevant genre in Webflow based on the collection id.
-
-When retrieving data from the movies collection, we get 20 results at a time with the page count. In this example, we set the maximum page count to 401 which and our code will make api call repeatedly until we reach 400 pages — `400 * 20 = 8000 items` added to Webflow.
-
-While retrieving 20 movies at a time, we loop over each movie and call another function (using our Bottleneck method) to create the collection item with the Webflow CMS api client. As a response for each successfully created item, we print out the name of the item/movie.
-
-INSERT GIF
-
-# The Javascript
-
-```js
 // import neccessary packages
 import axios from "axios";
 import Webflow from "webflow-api";
@@ -165,4 +140,3 @@ async function fetchGenres() {
     });
   });
 }
-```
